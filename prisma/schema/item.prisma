@@ -16,10 +16,13 @@ model Item {
     updated_at       DateTime     @updatedAt
     deleted_at       DateTime?
 
-    children         Item[]             @relation("ItemParent")
-    ItemImage        ItemImage[]
-    ItemAttribute    ItemAttribute[]
-    ItemHasAttribute ItemHasAttribute[]
+    children            Item[]             @relation("ItemParent")
+    item_images         ItemImage[]
+    item_attributes     ItemAttribute[]
+    item_has_attributes ItemHasAttribute[]
+    order_items         OrderItem[]
+    stocks              Stock[]
+    stock_logs          StockLog[]
 
     @@map("items")
 }
@@ -34,7 +37,7 @@ model ItemCategory {
     updated_at DateTime  @updatedAt
     deleted_at DateTime?
 
-    Item Item[]
+    items Item[]
 
     @@map("item_categories")
 }
@@ -66,7 +69,7 @@ model ItemAttribute {
     updated_at DateTime  @updatedAt
     deleted_at DateTime?
 
-    ItemAttributeValue ItemAttributeValue[]
+    item_attribute_values ItemAttributeValue[]
 
     @@map("item_attributes")
 }
@@ -81,7 +84,7 @@ model ItemAttributeValue {
     updated_at        DateTime      @updatedAt
     deleted_at        DateTime?
 
-    ItemHasAttribute ItemHasAttribute[]
+    item_has_attributes ItemHasAttribute[]
 
     @@map("item_attribute_values")
 }

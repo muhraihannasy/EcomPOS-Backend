@@ -18,6 +18,10 @@ model Tenant {
     warehouses              Warehouse[]
     warehouse_has_discounts WarehouseHasDiscount[]
     discounts               Discount[]
+    orders                  Order[]
+    order_items             OrderItem[]
+    stocks                  Stock[]
+    stock_logs              StockLog[]
 
     @@map("tenants")
 }
